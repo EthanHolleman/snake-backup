@@ -1,0 +1,33 @@
+
+local_machines:
+  blueMacaroon: # need to be able to pull out these machine names
+    local_targets: # folders on local machine to be backed up to remote
+      [
+        "/home/ethan/bin/",
+        "/home/ethan/Documents/github/",
+        "/home/ethan/data/igg/",
+        "/home/ethan/Pictures/",
+        "/home/ethan/Documents",
+        "/home/ethan/Zotero/storage",
+        "/home/ethan/data/datasets",
+      ]
+    remote_targets:
+      rclone:
+        [
+          'davis-gdrive:backups/blueMacaroon'
+        ]
+      rsync:
+        [""]
+      
+  
+rclone:
+  exe: "/usr/bin/rclone copy"
+  transfers: 5
+  checkers: 8
+  retries: 3
+  low_level_retries: 10
+
+rsync:
+  ssh: ''
+  
+
